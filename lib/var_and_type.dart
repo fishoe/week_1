@@ -45,7 +45,7 @@ void constAndFinal() {
   // const now = DateTime.now();
   final now = DateTime.now();
 
-  // now2 = DateTime.now(); // Error
+  // now = DateTime.now(); // Error
 }
 
 // 타입은 변수에 저장되는 데이터의 종류를 의미한다.
@@ -66,14 +66,14 @@ void types() {
   // dynamic: 동적 타입
 
   print("integer types");
-  int minutesForHour = 60;
+  int minutesForHour = 60; // 인트 선언부 // declare
+  // minutesForHour = 59.99; // Error // assignment
   print("three hours is ${minutesForHour * 3} minutes");
-  //minutesForHour = 59.99; // Error
   print(''); // empty line
 
   print("double types and integer operation");
-  int radius = 5;
-  double anotherRadius = 5.5;
+  int radius = 5; // 이진표현식으로 저장되는 부분 0101
+  double anotherRadius = 5.5; // 부동소수점 float number 지수와 가수로 표현되는 숫자
   areaOfCircle(radius);
   areaOfCircle(anotherRadius);
   print(''); // empty line
@@ -81,8 +81,10 @@ void types() {
   print("string type");
   String name = "John Doe";
   String fullName = "John D " "Doe";
-  // same with below code
   // String fullName2 = "John D " + "Doe";
+  String doubleName = "kim lee" "park man"; // "kim leepark man"
+  String namedouble = name * 3; // "John DoeJohn DoeJohn Doe"
+  // same with below code
   print(''); // empty line
 
   print("boolean and comparing");
@@ -91,6 +93,7 @@ void types() {
   print(name == "John Doe"); // true
   print(minutesForHour == anotherRadius); // false
   print(minutesForHour == 60.0); // true
+  // 60 == 60.0
 
   // compare references
   print(3 < 5);
@@ -101,7 +104,7 @@ void types() {
 
   print("Set type");
   // Set
-  var cities = {"New York", "Seoul", "Tokyo"};
+  Set<String> cities = {"New York", "Seoul", "Tokyo"};
   cities.add("Paris");
   cities.add("Seoul");
   print(cities.length); // 4
@@ -116,6 +119,7 @@ void types() {
   print(fruits);
 
   print("Map type");
+  // HashMap Map Table Dictionary Key-Value Pair
   // Map
   Map<String, String> capitals = {
     "Korea": "Busan",
@@ -125,10 +129,27 @@ void types() {
 
   capitals["France"] = "Paris";
   capitals["Korea"] = "Seoul";
+  capitals.remove("Japan");
   print(capitals.keys);
 }
 
 void areaOfCircle(dynamic radius) {
   double pi = 3.14;
   print("Area of circle with radius $radius is ${pi * radius * radius}");
+}
+
+typedef Student = (String, int, double, bool);
+
+void tuple() {
+  Student student = ("John Doe", 25, 1.75, true);
+  parseStudent(student);
+}
+
+void parseStudent(Student student) {
+  var (name, age, height, isStudent) = student;
+  var intValue = 2.5;
+  print("Name: $name");
+  print("Age: $age");
+  print("Height: $height");
+  print("Is student: $isStudent");
 }
