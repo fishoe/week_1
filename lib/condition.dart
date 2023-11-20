@@ -112,7 +112,6 @@ void condition() {
     "white",
     "gray",
     if (isTransparentColors) "transparent",
-    if (rgb) ...["red", "green", "blue"] else ...["yellow", "magenta", "cyan"]
   ];
 
   List<String> rgbColors = [

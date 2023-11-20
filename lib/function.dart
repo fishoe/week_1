@@ -19,7 +19,7 @@ int? myFavoriteNumberOrNull() {
   return null;
 }
 
-// 매개변수는 함수를 호출할 때 전달하는 데이터를 받는 변수이다.
+// parameter / 매개변수는 함수를 호출할 때 전달하는 데이터를 받는 변수이다.
 // 매개변수는 여러 개를 선언할 수 있다.
 // 매개변수의 타입은 생략할 수 있다.
 
@@ -58,10 +58,12 @@ int sumWithDefault2(int a, [int? b]) {
 int sumWithNamed({int a = 0, int b = 0}) {
   return a + b;
 }
+
 // 호출
 // sumWithNamed(a: 1, b: 2);
 // sumWithNamed(b: 1, a: 2);
 // sumWithNamed(a: 1);
+
 
 // 함수는 변수로 취급하거나 선언할 수 있다. 이런 형태를 일급객체라고 한다.
 
@@ -99,15 +101,16 @@ int Function(int, int) calc2() {
 // 클로저는 함수가 선언된 환경을 기억하는 함수이다.(캡쳐)
 
 void anonymousFunction() {
-  var foo = calc(3, 5, (a, b) {
-    return a * b;
-  }
+  var foo = calc(3, 5,
+    (a, b) {
+      return a * b;
+    }
       // (a, b) => a * b 로 동일하게 사용할 수 있다.
-      );
+  );
   print(foo);
 }
 
-captureClorure(int c) {
+captureClojure(int c) {
   int d = 1;
   // 스코프 개념에 의해서 안쪽 블록은 바깥쪽 블록의 변수를 사용할 수 있다.
   return (a, b) {
@@ -115,8 +118,8 @@ captureClorure(int c) {
   };
 }
 
-void captureClosureTest() {
-  var foo = captureClorure(3);
+void captureClojureTest() {
+  var foo = captureClojure(3);
   print(foo(4, 5));
 }
 
@@ -128,10 +131,12 @@ void captureClosureTest() {
 // yield* 키워드를 사용하면 다른 Iterable을 반환한다.
 
 Iterable<int> myFavoriteNumbers() sync* {
+  print("hello!");
   yield 1;
   yield 2;
   yield 3;
   yield 5;
+  print("i'm here!");
   yield 7;
   yield 11;
   yield 13;

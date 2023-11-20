@@ -32,7 +32,7 @@ void loop() {
 
   // for-in 반복문
   // Iterable 타입의 데이터를 순회한다.
-  // Iterable 타입은 List, Set, Map 등이 있다.
+  // Iterable 타입은 List, Set 등이 있다.
   // for (변수 in Iterable) { codes... }
   // 변수는 Iterable의 각 요소를 차례대로 가리킨다.
   List<int> numbers = [1, 2, 3, 4, 5];
@@ -84,7 +84,7 @@ void loop() {
 
   scores.forEach((name, score) => print("$name: $score"));
 
-  inlinePrint(name, score) => print("$name: $score");
+  inlinePrint(name, score) => print("$name: $score"); // 화살표 함수
   scores.forEach(inlinePrint);
 
   // break and continue
